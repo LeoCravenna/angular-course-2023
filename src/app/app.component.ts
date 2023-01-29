@@ -13,6 +13,70 @@ export class AppComponent {
     // CUANDO UN COMPONENTE SE RENDERIZA EN ANGULAR EN LA PARTE DEL NAVEGADOR, PRIMERO EMPIEZA EJECUTANDO EL
     // CODIGO QUE ESTA DENTRO DEL CONSTRUCTOR.
     console.log('Hola');
+
+    // OPERADORES
+
+    // MAP -> TRABAJA CON ARRAYS -> DENTRO DE LOS PARENTESIS RECIBE UNA FUNCION NORMAL/FUNCION FLECHA.
+    //     -> ESTE MAP VA A ITERAR UNO POR UNO EN EL ARRAY, POR CADA ITERACION VA A EJECUTAR LA FUNCION QUE SE
+    //        LE PASE ENTRE PARENTESIS. ESTO LO VA A GENERAR EN UN NUEVO ARRAY.
+    //        EN EL CASO DEL EJEMPLO, GENERA UN ARRAY NUEVO Y CADA VALOR LO MULTIPLICA POR DOS.
+    const auxMap = [1, 2, 3, 4, 5].map((num) => num * 2);
+    console.log('auxMap: ', auxMap); // SALIDA: [2,4,6,8,10]
+
+    // FOREACH -> SOLO RECORRE EL ARRAY -> DENTRO DE LOS PARENTESIS RECIBE UNA FUNCION NORMAL/FUNCION FECHA.
+    //         -> ESTE FOREACH VA A RECORRER LOS DATOS DEL ARRAY, SOLO LOS LEE Y HACE LO QUE NECESITEMOS.
+    const auxForEach = [1, 2, 3, 4, 5].forEach((num) => num * 2);
+    console.log('auxForEach: ', auxForEach); // SALIDA: UNDEFINED
+
+    // FIND -> BUSCA Y DEVUELVE INCLUSO UN OBJETO -> DENTRO DEL PARENTESIS RECIBE UNA FUNCION NORMAL/FUNCION FECHA.
+    //      -> CUANDO RECORRE EL ARRAY, BUSCA EN CADA ITERACION SI EL NUM ES IGUAL A 3, SI LO ENCUENTA LO MUESTRA,
+    //         SINO DICE UNDEFINED
+    //         TAMBIEN PUEDE SER QUE QUIERAS BUSCAR UN ID E UN OBJETO ASI: .find(num => obj.id === 3)
+    const auxFind = [1, 2, 3, 4, 5].find((num) => num === 3);
+    console.log('auxFind: ', auxFind); // SALIDA: 3
+
+    const auxFind2 = [1, 2, 3, 4, 5].find((num) => num === 6);
+    console.log('auxFind2: ', auxFind2); // SALIDA: UNDEFINED
+
+    // FIND INDEX -> BUSCA EL INDICE DE LA POSICION DEL ARRAY -> DENTRO DEL PARENTESIS RECIBE UNA FUNCION NORMAL/FUNCION FECHA.
+    //            -> CUANDO RECORRE EL ARRAY, BUSCA EN QUE INDICE ESTA EL NUM IGUAL A 4, SI LO ENCUENTA LO MUESTA,
+    //               SINO NOS TRAE -1
+    const auxFindIndex = [1, 2, 3, 4, 5].findIndex((num) => num === 4);
+    console.log('auxFindIndex: ', auxFindIndex); // SALIDA: 3 (EN LOS ARRAYS ARRANCAN DE LA POSICION CERO)
+
+    const auxFindIndex2 = [1, 2, 3, 4, 5].findIndex((num) => num === 6);
+    console.log('auxFindIndex2: ', auxFindIndex2); // SALIDA: -1
+
+    // INDEXOF -> DEVUELVE EL INDICE DE LO QUE ESTAS BUSCANDO -> DENTRO DEL PARENTESIS RECIBE LO QUE ESTAMOS BUSCANDO, NO UNA FUNCION.
+    //         -> PUEDE RECIBIR OBJETO, CADENA PERO DEVUELVE SOLO EL INDICE, SI LO ENCUENTA LO MUESTRA, SINO NOS TRAE -1
+    const auxIndexOf = [1, 2, 3, 4, 5].indexOf(1);
+    console.log('auxIndexOf: ', auxIndexOf); // SALIDA: 0 (EN LOS ARRAYS ARRANCAN DE LA POSICION CERO)
+
+    const auxIndexOf2 = [1, 2, 3, 4, 5].indexOf(6);
+    console.log('auxIndexOf2: ', auxIndexOf2); // SALIDA: -1
+
+    const auxIndexOfString = 'Hola Mundo'.indexOf('M'); // SI BUSCAMOS UNA PALABRA ENTERA, SOLO VA A TRAER LA POSICION DEL 1° CARACETER
+    console.log('auxIndexOfString: ', auxIndexOfString); // SALIDA: 5
+
+    // FILTER -> FILTA - TRABAJA CON ARRAYS -> DENTRO DEL PARENTESIS RECIBE UNA FUNCION NORMAL/FUNCION FECHA.
+    //        -> EL FILTER FUNCIONA IGUAL QUE EL MAP, DEVUELVE UN NUEVO ARRAY PERO LO FILTRA, SI ENCUENTRA LO MUESTRA, SINO NOS TRAE
+    //           UN ARRAY VACIO.
+    const auxFilter = [1, 2, 3, 4, 5].filter((num) => num % 2 === 0); // LE DIGO QUE FILTRE LOS NUMEROS SOLO QUE SEAN PARES
+    console.log('auxFilter: ', auxFilter); // SALIDA: [2,4]
+
+    const auxFilter2 = [1, 2, 3, 4, 5].filter((num) => num % 2 !== 0); // LE DIGO QUE FILTRE LOS NUMEROS SOLO QUE SEAN INPARES
+    console.log('auxFilter2: ', auxFilter2); // SALIDA: [1,3,5]
+
+    const auxFilter3 = [1, 2, 3, 4, 5].filter((num) => num % 6 === 0); // LE DIGO QUE FILTRE LOS NUMEROS SOLO QUE SEAN MULTIPLOS DE 6
+    console.log('auxFilter3: ', auxFilter3); // SALIDA: []
+
+    // JOIN -> RECIBE ARRAY -> LO CONVIERTE EN CADENA -> DENTRO DEL PARENTESIS RECIBE DE QUE FORMA SE VA A CONCATENAR LA CADENA.
+    const auxJoin = [1, 2, 3, 4, 5].join('-'); //CONVIERTE EL ARRAY EN CADENA DE TEXTO Y LO SEPARA EN (-)
+    console.log('auxJoin: ', auxJoin); // SALIDA: 1-2-3-4-5
+
+    // SPLIT -> RECIBE CADENA -> LO CONVIERTE EN ARRAY -> DENTRO DEL PARENTESIS RECIBE EL PARAMETRO QUE TIENE QUE ENCONTRAR PARA SEPARARLO.
+    const auxSplit = 'Hola,Mundo,Test'.split(','); //CONVIERTE LA CADENA DE TEXTO EN ARRAY Y LO ARMA SEGUN EL CARACTER A UBICAR EN LA CADENA
+    console.log('auxSplit: ', auxSplit); // SALIDA: ["Hola, "Mundo", "Test"]
   }
 
   // LA FUNCION SI SE LE PASA PARAMETRO, HAY QUE DECIRLE DE QUE TIPO ES Y DESPUES ANTES DEL COMIENZO DE LA LLAVE,
@@ -21,9 +85,9 @@ export class AppComponent {
   // DELANTE DEL NOMBRE DE LA FUNCION SE PUEDE ESPECIFICAR SI ES PUBLIC O PRIVATE, SI ES PUBLIC, SE PUEDE ACCEDER
   // DESDE EL APP.COMPONENT.HTML Y SI FUERA PRIVADO, SOLO SE PODRIA USAR DENTRO DE LA CLASS APPCOMPONENT.
   // SI A UNA VARIABLE O FUNCION NO SE LE ACLARA, POR DEFECTO ES PUBLIC.
-  getName(name: string): string {
+  /*getName(name: string): string {
     return 'Hola' + name;
-  }
+  }*/
 
   // SE USA MUCHO EN ANGULAR LOS ARROW FUNCTIONS (FUNCIONES FLECHA), SIRVE PARA QUE EL CODIGO SEA MAS CORTO.
   // LA SINTAXIS SERIA, () (PARAMETROS DE ENTRADA), => (EN VEZ DE DOS PUNTOS O LLAVES) Y
