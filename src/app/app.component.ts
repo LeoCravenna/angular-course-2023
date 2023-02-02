@@ -77,6 +77,71 @@ export class AppComponent {
     // SPLIT -> RECIBE CADENA -> LO CONVIERTE EN ARRAY -> DENTRO DEL PARENTESIS RECIBE EL PARAMETRO QUE TIENE QUE ENCONTRAR PARA SEPARARLO.
     const auxSplit = 'Hola,Mundo,Test'.split(','); //CONVIERTE LA CADENA DE TEXTO EN ARRAY Y LO ARMA SEGUN EL CARACTER A UBICAR EN LA CADENA
     console.log('auxSplit: ', auxSplit); // SALIDA: ["Hola, "Mundo", "Test"]
+
+    // OPERADORES TYPESCRIPT
+
+    //SPLICE -> RECIBE ARRAY -> RECIBE DOS PARAMETROS: CUANTOS ELEMENTOS VA A ELIMINAR Y LA POSICION DESDE DONDE VA A ELIMINAR LOS ELEMENTOS.
+    //       -> EL SPLICE SE UTILIZA GENERALMENTE CUANDO SE QUIERE ELIMINAR DE UNA TABLA UNA FILA ESPECIFICA.
+    //       -> PUEDE DEVOLVER LO QUE ESTAS ELIMINANDO O EL ARRAY MODIFICADO SIN LOS ELEMENTOS QUE FUERON ELIMINADOS.
+    const auxSplice = ['a', 'b', 'c', 'd', 'e'].splice(1, 1); // SACA UN ELEMENTO DE LA POSICION UNO
+    console.log('auxSplice: ', auxSplice); // SALIDA: ["b"]
+
+    const A = [1, 2, 3, 4, 5];
+    const auxSplice2 = A.splice(1, 1);
+    //A.splice(1,1); DE ESTA FORMA SE COLOCA TAMBIEN SI NO QUERES SABER QUE SE ELIMINO
+    console.log('auxSplice2: ', A, auxSplice2); // SALIDA: [1,3,4,5] [2]
+
+    //REDUCE -> RECIBE ARRAY -> RECIBE UNA FUNCION SIMPLE/FLECHA Y EL SEGUNDO PARAMETRO ES EL VALOR INICIAL DESDE DONDE EMPEZAR A SUMAR.
+    //       -> EL REDUCE SE UTILIZA PARA SUMAR VALORES DE UN ARRAY.
+    //       -> TIENE TRES ENTRADAS: ACUMULADOR, VALOR ACTUAL Y EL INDICE.
+    const auxReduce = [1, 2, 3, 4, 5].reduce((prev, value, index) => {
+      //console.log(prev, value, index); // PARA SABER LOS VALORES DE CADA ENTRADA
+      return prev + value;
+    }, 0); // EL CERO ES EL VALOR DE ACUMULADOR INICIAL, SI HUBIERA SIDO VALOR 100, LA SALIDA HUBIERA SIDO 115
+    console.log('auxReduce: ', auxReduce); // SALIDA: 15
+
+    // SI RETORNA UNA LINEA DE CODIGO TAMBIEN SE PUEDE ESCRIBIR ASI:
+    const auxReduce2 = [1, 2, 3, 4, 5].reduce(
+      (prev, value, index) => prev + value,
+      0
+    );
+    console.log('auxReduce2: ', auxReduce2); // SALIDA: 15
+
+    // OPERADORES JSON
+    // SE TIENE TRES OPERADORES: ENTRIES, KEY Y VALUES
+    const auxJSON = {
+      id: 1,
+      name: 'JUAN',
+      lasName: 'GUTIERREZ',
+    };
+
+    //ENTRIES -> RECIBE UN OBJETO JSON -> DEVUELVE UN ARRAY.
+    //        -> LO QUE HACE ES AGARRAR LOS VALORES DEL JSON Y CONVERTIRLOS EN ARRAY, O SEA, EN ESTE CASO DEVUELVE UN ARRAY CON 3 ARRAYS DENTRO.
+    const auxEntries = Object.entries(auxJSON);
+    console.log('auxEntries: ', auxEntries); // SALIDA: [Array[2]], [Array[2]], [Array[2]]
+
+    //KEYS -> RECIBE UN OBJETO JSON -> DEVUELVE UN ARRAY.
+    //     -> EN ESTE CASO AGARRA SOLO LAS KEYS DEL JSON, NO SUS VALORES Y LO DEVUELVE EN UN ARRAY.
+    const auxKeys = Object.keys(auxJSON);
+    console.log('auxKeys: ', auxKeys); // SALIDA: ["id", "name", "lasName"]
+
+    //VALUES -> RECIBE UN OBJETO JSON -> DEVUELVE UN ARRAY.
+    //       -> EN ESTE CASO AGARRA SOLO LOS VALORES DE JSON, NO SUS KEYS Y LO DEVUELVE EN UN ARRAY.
+    const auxValues = Object.values(auxJSON);
+    console.log('auxValues: ', auxValues); // SALIDA: [1, "JUAN", "GUTIERREZ"]
+
+    //CONST -> UNA VARIABLE DE TIPO CONSTANTE NO PUEDE CAMBIAR SU VALOR, UN VALOR FIJO TENDRIA.
+    //LET   -> SE USA PARA REASIGNACIONES, PUEDE CAMBIAR SU VALOR.
+    //         FUNCIONA DENTRO DEL CONTEXTO DONDE SE DEFINA, ES DECIR QUE SE PUEDE TENER VARIABLES LET REPETIDAS CON EL MISMO NOMBRE.
+
+    //LET
+    // EN ESTE CASO PODEMOS TENER DOS FOR CON let i = 1 Y SE EJECUTAN IGUAL COMO DOS DIFERENTES.
+    for (let i = 1; i <= 5; i++) {
+      //console.log(i); // SALIDA: 1 2 3 4 5
+    }
+    for (let i = 1; i <= 5; i++) {
+      //console.log(i); // SALIDA: 1 2 3 4 5
+    }
   }
 
   // LA FUNCION SI SE LE PASA PARAMETRO, HAY QUE DECIRLE DE QUE TIPO ES Y DESPUES ANTES DEL COMIENZO DE LA LLAVE,
